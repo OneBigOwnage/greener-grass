@@ -1,5 +1,7 @@
 <?php
 
+use App\GitHubContributionsService;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function (GitHubContributionsService $service) {
+    return view('main')->with('contributionsCount', $service->getContributions('OneBigOwnage'));
+});
+
+Route::get('/add-contribution', function (GitHubContributionsService $service) {
+    $service->addContribution('OneBigOwnage', 'greener-grass');
+
+    return redirect('/');
 });
