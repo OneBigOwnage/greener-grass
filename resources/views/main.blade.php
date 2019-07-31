@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Greener grass</title>
     <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
-    <link href="//cdn.muicss.com/mui-0.9.42/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.muicss.com/mui-0.9.42/css/mui.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
-    <script src="//cdn.muicss.com/mui-0.9.42/js/mui.min.js"></script>
+    <script src="https://cdn.muicss.com/mui-0.9.42/js/mui.min.js"></script>
 
     <style>
         html,
