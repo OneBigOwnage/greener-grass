@@ -25,7 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(new DailyContribution())->everyFiveMinutes();
+        $saveTheDay = app()->make(DailyContribution::class);
+        $schedule->call($saveTheDay)->dailyAt('22:00');
     }
 
     /**
