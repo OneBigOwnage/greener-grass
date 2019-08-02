@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Throwable;
+
 class DailyContribution
 {
     /**
@@ -54,8 +56,13 @@ class DailyContribution
             return;
         }
 
-        $this->service->addContribution($this->username, $this->repository);
-
         logger()->info("Adding a contribution to {$this->username}/{$this->repository}");
+
+        try {
+            $this->service->addContribution($this->username, $this->repository);
+        } catch (Throwable $exception) {
+            logger()->error('An error occurred whilst trying to create the daily contribution, more information below.');
+            report($exception);
+        }
     }
 }
