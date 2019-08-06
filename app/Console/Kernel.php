@@ -2,7 +2,7 @@
 
 namespace App\Console;
 
-use App\DailyContribution;
+use App\GitHubContributionsService;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,8 +25,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $saveTheDay = app()->make(DailyContribution::class);
-        $schedule->call($saveTheDay)->dailyAt('22:00');
+        $schedule->call(function () {
+            $this->app->make(GitHubContributionsService::class, [ 'repository' => 'greener-grass' ])
+                ->addContributionIfNonePresent();
+        })->dailyAt('22:00');
     }
 
     /**
