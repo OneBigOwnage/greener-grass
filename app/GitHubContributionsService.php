@@ -132,7 +132,7 @@ class GitHubContributionsService
      */
     public function addContributionIfNonePresent()
     {
-        $contributionsCount = $this->service->getContributions($this->username);
+        $contributionsCount = $this->getContributions();
 
         if ($contributionsCount >= 1) {
             logger()->info("No need to add an automatic contribution, {$this->username} already has already made {$contributionsCount} contribution(s) today.");
@@ -141,6 +141,6 @@ class GitHubContributionsService
 
         logger()->info("Going to add a contribution to {$this->username}/{$this->repository}");
 
-        $this->service->addContribution($this->username, $this->repository);
+        $this->addContribution();
     }
 }
